@@ -2,14 +2,18 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPRINT_MULTIPLIER = 1.5
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
+@export var max_stamina := 5.0 
+@export var stamina_recovery_rate := 1.0
+@export var stamina_depletion_rate := 2.0
 @export var sensitivity: float = 1
 
-var sprinting := false
+var stamina := max_stamina
+var can_sprint := true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -28,17 +32,28 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	var is_sprinting = Input.is_action_pressed("sprint") and can_sprint and stamina > 0
+	var current_speed = SPEED
+	if is_sprinting:
+		current_speed = current_speed * SPRINT_MULTIPLIER
+		stamina -= stamina_depletion_rate * delta
+		if stamina <= 0:
+			stamina = 0
+			can_sprint = false
+	else:
+		stamina += stamina_recovery_rate * delta
+		if stamina >= max_stamina:
+			stamina  = max_stamina
+			can_sprint = true
+	
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
