@@ -7,7 +7,7 @@ extends Node
 @export var focused_viewport : Viewport
 
 func _unhandled_input(event : InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause"):
 		if not focused_viewport:
 			focused_viewport = get_viewport()
 		var _initial_focus_control = focused_viewport.gui_get_focus_owner()

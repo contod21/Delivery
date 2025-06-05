@@ -11,8 +11,5 @@ game_scene_path = "uid://2463ydjpygiv"
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_0jpat")
 
-[node name="BackgroundMusicPlayer" parent="." index="1"]
-bus = &"Master"
-
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "Delivery"
+text = ""

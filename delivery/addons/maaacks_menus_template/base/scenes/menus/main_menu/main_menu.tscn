@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=12 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="2_qvrrd"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/scenes/music_players/background_music_player.tscn" id="4_w8sbm"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_menus_template/base/scripts/ui_sound_controller.gd" id="6_bs342"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
-[ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/config_name_label.gd" id="7_j7612"]
+[ext_resource type="Texture2D" uid="uid://dtwvn408t88la" path="res://UI/Title.jpg" id="8_fhhe7"]
+[ext_resource type="Texture2D" uid="uid://c3r8vh1hfcs5n" path="res://UI/Start button.jpg" id="9_w26no"]
+[ext_resource type="Texture2D" uid="uid://co53rsre0sgpe" path="res://UI/Settings icon.jpg" id="10_h0dp7"]
+[ext_resource type="Texture2D" uid="uid://dfu8hqug4k74q" path="res://UI/Quit button.jpg" id="11_fhhe7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,6 +27,7 @@ credits_packed_scene = ExtResource("3_5dhvp")
 script = ExtResource("6_bs342")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_w8sbm")]
+bus = &"Master"
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -62,7 +66,7 @@ offset_left = -88.0
 offset_top = -26.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "v0.0.0"
+text = "v0.5.2"
 horizontal_alignment = 2
 script = ExtResource("6_pdiij")
 
@@ -83,36 +87,10 @@ theme_override_constants/margin_top = 24
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TitleLabel" type="Label" parent="MenuContainer/TitleMargin/TitleContainer"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 67.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 48
-text = "Title"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_j7612")
-
-[node name="SubTitleMargin" type="MarginContainer" parent="MenuContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 92
-
-[node name="SubTitleContainer" type="Control" parent="MenuContainer/SubTitleMargin"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SubTitleLabel" type="Label" parent="MenuContainer/SubTitleMargin/SubTitleContainer"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 34.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
-text = "Subtitle"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Title" type="Sprite2D" parent="MenuContainer/TitleMargin/TitleContainer"]
+position = Vector2(586, 95.0001)
+scale = Vector2(0.16205, 0.16205)
+texture = ExtResource("8_fhhe7")
 
 [node name="MenuButtonsMargin" type="MarginContainer" parent="MenuContainer"]
 layout_mode = 2
@@ -132,37 +110,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
+offset_left = -342.0
+offset_top = -94.0
+offset_right = -95.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.79773, 2.96)
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 alignment = 1
-vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="NewGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(29.57, 0)
 layout_mode = 2
-text = "New Game"
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("9_w26no")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
 
-[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(29.885, 0)
 layout_mode = 2
-text = "Options"
+texture_normal = ExtResource("10_h0dp7")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(28.13, 0)
 layout_mode = 2
-text = "Credits"
-
-[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Exit"
+texture_normal = ExtResource("11_fhhe7")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="OptionsContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -213,6 +197,5 @@ text = "Back"
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="FlowControlContainer/FlowControl/BackButton" to="." method="_on_back_button_pressed"]

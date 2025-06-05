@@ -12,10 +12,15 @@ const SPRINT_MULTIPLIER = 1.5
 @export var stamina_depletion_rate := 2.0
 @export var sensitivity: float = 1
 
+@export_group("headbob")
+@export var headbob_frequency := 2.0
+@export var headbob_amplitude := 0.04
+var headbob_time := 0.0
+
 var stamina := max_stamina
 var can_sprint := true
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("ui_cancel"):
@@ -59,3 +64,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	headbob_time += delta * velocity.length() * float(is_on_floor())
+	%Camera3D.transform.origin = headbob(headbob_time)
+	
+func headbob(headbob_time):
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
+	headbob_position.x = sin(headbob_time * headbob_frequency / 2) * headbob_amplitude
+	return headbob_position
