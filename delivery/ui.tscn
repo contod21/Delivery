@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c1ln6xgb2y47b"]
+[gd_scene load_steps=2 format=3 uid="uid://c1ln6xgb2y47b"]
+
+[ext_resource type="Texture2D" uid="uid://h5qvv4ctypa5" path="res://UI/hand with phone.png" id="1_fyqef"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -9,3 +11,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(946, 506)
+scale = Vector2(0.305819, 0.305819)
+texture = ExtResource("1_fyqef")

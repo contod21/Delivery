@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Delivery"
-config/version="0.5.2"
+config/version="0.0.1 (Alpha)"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
