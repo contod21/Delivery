@@ -37,8 +37,7 @@ size = Vector3(0.449219, 0.634644, 0.461914)
 material = SubResource("StandardMaterial3D_f3sb7")
 
 [node name="UserInterface" parent="Neck" instance=ExtResource("2_onrkg")]
-visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Neck"]
-transform = Transform3D(0.106, 0, 0, 0, 0.106, 0, 0, 0, 0.106, 1.36, -0.7, -1.521)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.8, -0.435, -0.891)
 texture = ExtResource("3_i3pqv")

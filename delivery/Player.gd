@@ -6,11 +6,14 @@ const SPRINT_MULTIPLIER = 1.5
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+@onready var sprite := $Neck/Sprite3D
 
 @export var max_stamina := 5.0 
 @export var stamina_recovery_rate := 1.0
 @export var stamina_depletion_rate := 2.0
 @export var sensitivity: float = 1
+@export var sprite_offset := Vector3(0.2, -0.19, -0.4) # right, down, forward
+@export var sprite_scale := Vector3(0.025, 0.025, 0.025)
 
 @export_group("headbob")
 @export var headbob_frequency := 2.0
@@ -19,6 +22,7 @@ var headbob_time := 0.0
 
 var stamina := max_stamina
 var can_sprint := true
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -33,6 +37,7 @@ func _input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
+	update_sprite_follow_camera(delta)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -73,3 +78,21 @@ func headbob(headbob_time):
 	headbob_position.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
 	headbob_position.x = sin(headbob_time * headbob_frequency / 2) * headbob_amplitude
 	return headbob_position
+
+func update_sprite_follow_camera(delta: float) -> void:
+	var camera_transform = camera.global_transform
+
+	# Headbob offset
+	var bob_offset = headbob(headbob_time)
+
+	# Calculate new position relative to camera basis
+	var new_position = camera_transform.origin
+	new_position += camera_transform.basis.x * sprite_offset.x  # right
+	new_position += camera_transform.basis.y * sprite_offset.y  # down
+	new_position += camera_transform.basis.z * sprite_offset.z  # forward
+	new_position += bob_offset  # add headbob
+
+	sprite.global_transform.origin = new_position
+	sprite.global_transform.basis = neck.global_transform.basis.rotated(Vector3.RIGHT, camera.rotation.x)
+
+	sprite.scale = sprite_scale
