@@ -6,14 +6,13 @@ const SPRINT_MULTIPLIER = 1.5
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
-@onready var sprite := $Neck/Sprite3D
+@onready var hand_sprite := $Neck/Camera3D/Sprite3D
+@onready var animated_hand := $Neck/Camera3D/AnimatedSprite3D
 
 @export var max_stamina := 5.0 
 @export var stamina_recovery_rate := 1.0
 @export var stamina_depletion_rate := 2.0
 @export var sensitivity: float = 1
-@export var sprite_offset := Vector3(0.2, -0.19, -0.4) # right, down, forward
-@export var sprite_scale := Vector3(0.025, 0.025, 0.025)
 
 @export_group("headbob")
 @export var headbob_frequency := 2.0
@@ -23,12 +22,28 @@ var headbob_time := 0.0
 var stamina := max_stamina
 var can_sprint := true
 
+# Store the original hand positions
+var original_hand_position: Vector3
+var original_animated_hand_position: Vector3
+
+
+func _ready():
+	original_hand_position = hand_sprite.transform.origin
+	original_animated_hand_position = animated_hand.transform.origin
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		# Handle click animation when mouse is captured and visible
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if animated_hand.visible == true: 
+				play_click_animation()
+			
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif event.is_action_pressed("flashlight"):
+		toggle_visibility()
 		
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
@@ -37,7 +52,6 @@ func _input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
-	update_sprite_follow_camera(delta)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -71,7 +85,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	headbob_time += delta * velocity.length() * float(is_on_floor())
-	%Camera3D.transform.origin = headbob(headbob_time)
+	var headbob_offset = headbob(headbob_time)
+	
+	# Apply headbob to camera
+	camera.transform.origin = headbob_offset
+	
+	# Apply headbob to hand sprite (relative to its original position)
+	hand_sprite.transform.origin = original_hand_position + headbob_offset
+	
+	# Apply headbob to animated hand sprite (relative to its original position)
+	animated_hand.transform.origin = original_animated_hand_position + headbob_offset
 	
 func headbob(headbob_time):
 	var headbob_position = Vector3.ZERO
@@ -79,20 +102,18 @@ func headbob(headbob_time):
 	headbob_position.x = sin(headbob_time * headbob_frequency / 2) * headbob_amplitude
 	return headbob_position
 
-func update_sprite_follow_camera(delta: float) -> void:
-	var camera_transform = camera.global_transform
+func play_click_animation():
+	# Hide the static hand and show the animated one
+	hand_sprite.visible = false
+	animated_hand.visible = true
+	
+	# Play the click animation (you'll need to set this up in the AnimatedSprite3D)
+	animated_hand.play("punch")  # Replace "click" with your animation name
 
-	# Headbob offset
-	var bob_offset = headbob(headbob_time)
 
-	# Calculate new position relative to camera basis
-	var new_position = camera_transform.origin
-	new_position += camera_transform.basis.x * sprite_offset.x  # right
-	new_position += camera_transform.basis.y * sprite_offset.y  # down
-	new_position += camera_transform.basis.z * sprite_offset.z  # forward
-	new_position += bob_offset  # add headbob
+func _on_animated_sprite_3d_animation_finished() -> void:
+	pass
 
-	sprite.global_transform.origin = new_position
-	sprite.global_transform.basis = neck.global_transform.basis.rotated(Vector3.RIGHT, camera.rotation.x)
-
-	sprite.scale = sprite_scale
+func toggle_visibility():
+	hand_sprite.visible = !hand_sprite.visible
+	animated_hand.visible = !animated_hand.visible
