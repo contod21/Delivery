@@ -42,10 +42,11 @@ mesh = SubResource("PlaneMesh_gv5m4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_f3sb7")
 
-[node name="player" parent="." instance=ExtResource("1_f3sb7")]
-
 [node name="box" parent="." instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17606, 0.25, -4.59518)
 
 [node name="keypad" parent="." instance=ExtResource("3_tlwt5")]
 transform = Transform3D(0.467625, 0, 0, 0, 0.467625, 0, 0, 0, 0.467625, -0.545229, 1.65448, -4.84721)
+
+[node name="player" parent="." instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184224, 0.0112355, 1.31351)

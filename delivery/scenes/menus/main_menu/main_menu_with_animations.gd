@@ -26,10 +26,17 @@ func _close_sub_menu() -> void:
 	animation_state_machine.travel("OpenMainMenu")
 
 func _input(event : InputEvent) -> void:
+	if event is InputEventKey:
+		event.as_text_key_label()
+	else:
+		print(event)
 	if _is_in_intro() and _event_skips_intro(event):
 		intro_done()
 		return
+	
 	super._input(event)
+
+
 
 func _ready() -> void:
 	super._ready()

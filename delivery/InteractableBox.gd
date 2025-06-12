@@ -27,13 +27,13 @@ func _ready():
 	interaction_area.body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body):
-	if body.name == "CharacterBody3D":  # Your player node name
+	if body.name == "player":  # Your player node name
 		can_interact = true
 		player_reference = body
 		show_interaction_ui()
 
 func _on_body_exited(body):
-	if body.name == "CharacterBody3D":
+	if body.name == "player":
 		can_interact = false
 		player_reference = null
 		hide_interaction_ui()
@@ -45,7 +45,7 @@ func show_interaction_ui():
 		
 		# Position closer to the top of the box
 		interaction_billboard.position = Vector3(0, 0, 0)  # Much closer to the box
-		interaction_billboard.setup(interaction_text)
+		interaction_billboard.setup(interaction_text,"interact")
 
 func hide_interaction_ui():
 	if interaction_billboard:
