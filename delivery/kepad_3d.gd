@@ -22,7 +22,7 @@ func _ready():
 	interaction_area.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	if body.name == "CharacterBody3D":
+	if body.name == "player":
 		show_keypad()
 
 func show_keypad():

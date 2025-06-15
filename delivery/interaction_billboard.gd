@@ -24,6 +24,7 @@ func _ready():
 func setup(interaction_text: String, action_name: String = "interact"):
 	if key_label:
 		var key_text = get_key_for_action(action_name)
+		#print(action_name, key_text)
 		key_label.text = "[" + key_text + "] to interact"
 
 func set_player_camera(camera: Camera3D):
@@ -31,10 +32,17 @@ func set_player_camera(camera: Camera3D):
 
 func get_key_for_action(action_name: String) -> String:
 	var events = InputMap.action_get_events(action_name)
-	print(action_name, events)
+	#for i in InputMap.get_actions():
+		#print(i, "  ", InputMap.action_get_events(i))
+	#print(InputMap.get_actions())
+	#print(action_name, events)
+	print("list of events", events)
 	if events.size() > 0:
+		
 		var event = events[0]  # Get the first assigned key
 		if event is InputEventKey:
+			var yyel = OS.get_keycode_string(event.key_label)
+			print(yyel)
 			return event.as_text_key_label()
 	return "?"
 
