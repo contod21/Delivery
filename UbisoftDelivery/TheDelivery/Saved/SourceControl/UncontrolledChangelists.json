@@ -1,0 +1,25 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/UI/M_FillBackground.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/UI/UI_Horror.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Input/IA_Sprint.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Input/IMC_Horror.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/Materials/LF_Flicker.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/Materials/MF_LightFlicker.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/Materials/MI_FlickeringLight.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/Materials/M_DustMote.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/Materials/M_Light.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Assets/NS_DustMote.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/Light/Light.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/BP_FP_Horror.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Blueprints/GM_Horror.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/Variant_Horror/Lvl_Horror.umap"
+			]
+		}
+	]
+}
