@@ -1,0 +1,10 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\conno\\Documents\\Delivery\\UbisoftDelivery\\TheDelivery\\Intermediate\\Source\\TheDelivery.Build.cs",
+		"C:\\Users\\conno\\Documents\\Delivery\\UbisoftDelivery\\TheDelivery\\Intermediate\\Source\\TheDelivery.Target.cs",
+		"C:\\Users\\conno\\Documents\\Delivery\\UbisoftDelivery\\TheDelivery\\Intermediate\\Source\\TheDeliveryClient.Target.cs",
+		"C:\\Users\\conno\\Documents\\Delivery\\UbisoftDelivery\\TheDelivery\\Intermediate\\Source\\TheDeliveryEditor.Target.cs",
+		"C:\\Users\\conno\\Documents\\Delivery\\UbisoftDelivery\\TheDelivery\\Intermediate\\Source\\TheDeliveryServer.Target.cs"
+	],
+	"EngineVersion": "5.6.0"
+}
