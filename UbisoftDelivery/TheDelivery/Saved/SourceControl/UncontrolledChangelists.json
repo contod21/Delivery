@@ -5,6 +5,11 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/keypadSystem/KeyPad_Actor.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/keypadSystem/BPI_Keypad.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/keypadSystem/KeyPad_BPI.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/0/8P/FHVB55SJXUWWH9YFW9QP7J.uasset",
+				"D:/ConTod/Delivery/UbisoftDelivery/TheDelivery/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
 				"C:/Users/conno/Documents/Delivery/UbisoftDelivery/TheDelivery/Content/Material_004.uasset",
 				"C:/Users/conno/Documents/Delivery/UbisoftDelivery/TheDelivery/Content/Material_003.uasset",
 				"C:/Users/conno/Documents/Delivery/UbisoftDelivery/TheDelivery/Content/Material_002.uasset",
