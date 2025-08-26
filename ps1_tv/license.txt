@@ -1,0 +1,11 @@
+Model Information:
+* title:	PS1 TV
+* source:	https://sketchfab.com/3d-models/ps1-tv-656438e69222477ea15746bda08e8e07
+* author:	abomination (https://sketchfab.com/ab0mination)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PS1 TV" (https://sketchfab.com/3d-models/ps1-tv-656438e69222477ea15746bda08e8e07) by abomination (https://sketchfab.com/ab0mination) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

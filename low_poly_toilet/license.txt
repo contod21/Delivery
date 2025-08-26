@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low poly toilet
+* source:	https://sketchfab.com/3d-models/low-poly-toilet-648c1aef49f140288cf5cdf73b4e2f67
+* author:	Mpb101 (https://sketchfab.com/Mpb101)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low poly toilet" (https://sketchfab.com/3d-models/low-poly-toilet-648c1aef49f140288cf5cdf73b4e2f67) by Mpb101 (https://sketchfab.com/Mpb101) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

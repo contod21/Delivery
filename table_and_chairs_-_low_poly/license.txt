@@ -1,0 +1,11 @@
+Model Information:
+* title:	Table and Chairs - Low Poly
+* source:	https://sketchfab.com/3d-models/table-and-chairs-low-poly-931e2b1953304f2b88aa00776b5a3d36
+* author:	LortDigital (https://sketchfab.com/LortDigital)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Table and Chairs - Low Poly" (https://sketchfab.com/3d-models/table-and-chairs-low-poly-931e2b1953304f2b88aa00776b5a3d36) by LortDigital (https://sketchfab.com/LortDigital) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
