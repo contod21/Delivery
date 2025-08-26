@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pot Plant with Succulent
+* source:	https://sketchfab.com/3d-models/pot-plant-with-succulent-e1e635de45704afe84efdb7be2e1adaa
+* author:	StaticBuffering (https://sketchfab.com/StaticBuffering)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pot Plant with Succulent" (https://sketchfab.com/3d-models/pot-plant-with-succulent-e1e635de45704afe84efdb7be2e1adaa) by StaticBuffering (https://sketchfab.com/StaticBuffering) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
